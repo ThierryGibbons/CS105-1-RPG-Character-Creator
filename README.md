@@ -18,4 +18,26 @@ Note: The derived classes will override this `attack()` member function to defin
   - `ORC`
   - `TROLL`
 
-Note: The `enum` may be code inside `Player.h` which will ensure all derived classes have access to it.
+Note: The `enum` may be code inside `Player.h` which will ensure all derived classes have access to it
+
+## The Three Derived Classes:
+Following are the specific player types that will be derived classes of the Player class:
+- Warrior 
+  - 200 hitPoints, 0 magicPoints
+  - Their attack method should return "I will destroy you with my sword!"
+- Priest 
+  - 100 hitPoints, 200 magicPoints
+  - Their attack method should return "I will assault you with holy wrath!"
+- Mage 
+  - 200 hitPoints, 0 magicPoints
+  - Their attack method should return "I will crush you with my arcane missiles!"
+
+## The main function:
+Inside the main function, you should allow the user to create different kinds of player objects, 
+allowing them to select the derived class which you can request from the user using a simple 
+menu. You should also let the user select the race for their player as well. Additionally, you can 
+ask the user to assign a name to the player as well.
+Store players are created by the user in three different vectors namely warrior, priest, and 
+mage. Once you are done with the creation of player objects, iterate through all three vectors 
+and print out the player details along with their attack methods, names, and race (LO 4).
+
