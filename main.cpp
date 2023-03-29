@@ -34,7 +34,7 @@ int main() {
         std::cout << "1. Create Warrior" << std::endl;
         std::cout << "2. Create Priest" << std::endl;
         std::cout << "3. Create Mage" << std::endl;
-        std::cout << "4. Quit" << std::endl;
+        std::cout << "4. Finish Creating Characters" << std::endl;
         std::cout << "Enter your choice: ";
         std::cin >> choice;
 
@@ -60,19 +60,19 @@ int main() {
 
     } while (choice != 4);
 
-    std::cout << "\nWarriors:" << std::endl;
+    std::cout << "\n----------\nWarriors:\n----------" << std::endl;
     for (const auto& warrior : warriors) {
         printPlayerDetails(warrior);
         std::cout << std::endl;
     }
 
-    std::cout << "Priests:" << std::endl;
+    std::cout << "----------\nPriests:\n----------" << std::endl;
     for (const auto& priest : priests) {
         printPlayerDetails(priest);
         std::cout << std::endl;
     }
 
-    std::cout << "Mages:" << std::endl;
+    std::cout << "----------\nMages:\n----------" << std::endl;
     for (const auto& mage : mages) {
         printPlayerDetails(mage);
         std::cout << std::endl;
