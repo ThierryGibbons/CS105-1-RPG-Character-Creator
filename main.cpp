@@ -40,7 +40,14 @@ int main() {
         std::cout << "Enter your choice: ";
         std::cin >> choice;
 
-        // If choice is between 1 and 3, ask for name and race
+        // Clear input buffer and check for valid menu choice
+        if (std::cin.fail() || choice < 1 || choice > 4) {
+            std::cin.clear(); // Clear input error state
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
+            std::cout << "Invalid input. Please enter a valid choice (1-4)." << std::endl;
+            continue;
+        }
+
         if (choice >= 1 && choice <= 3) {
             std::cout << "Enter name: ";
             std::cin >> name;
@@ -48,6 +55,13 @@ int main() {
             std::cout << "Select race (0: Human, 1: Elf, 2: Dwarf, 3: Orc, 4: Troll): ";
             std::cin >> race;
 
+            // Clear input buffer and check for valid race choice
+            if (std::cin.fail() || race < 0 || race > 4) {
+                std::cin.clear(); // Clear input error state
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
+                std::cout << "Invalid input. Please enter a valid race (0-4)." << std::endl;
+                continue;
+            }
             // Create player object and add to vector
             switch (choice) {
                 case 1:
