@@ -33,34 +33,43 @@ int main() {
     int race;
 
     do {
-        std::cout << "1. Create Warrior" << std::endl;
-        std::cout << "2. Create Priest" << std::endl;
-        std::cout << "3. Create Mage" << std::endl;
-        std::cout << "4. Finish Creating Characters" << std::endl;
-        std::cout << "Enter your choice: ";
-        std::cin >> choice;
+        bool validChoice = false;
+        while (!validChoice) {
+            std::cout << "1. Create Warrior" << std::endl;
+            std::cout << "2. Create Priest" << std::endl;
+            std::cout << "3. Create Mage" << std::endl;
+            std::cout << "4. Finish Creating Characters" << std::endl;
+            std::cout << "Enter your choice: ";
+            std::cin >> choice;
 
-        // Clear input buffer and check for valid menu choice
-        if (std::cin.fail() || choice < 1 || choice > 4) {
-            std::cin.clear(); // Clear input error state
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
-            std::cout << "Invalid input. Please enter a valid choice (1-4)." << std::endl;
-            continue;
+            // Clear input buffer and check for valid menu choice
+            if (std::cin.fail() || choice < 1 || choice > 4) {
+                std::cin.clear(); // Clear input error state
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
+                std::cout << "Invalid input. Please enter a valid choice (1-4)." << std::endl;
+            } else {
+                validChoice = true;
+            }
         }
 
         if (choice >= 1 && choice <= 3) {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
             std::cout << "Enter name: ";
-            std::cin >> name;
+            std::getline(std::cin, name);
 
-            std::cout << "Select race (0: Human, 1: Elf, 2: Dwarf, 3: Orc, 4: Troll): ";
-            std::cin >> race;
+            bool validRace = false;
+            while (!validRace) {
+                std::cout << "Select race (0: Human, 1: Elf, 2: Dwarf, 3: Orc, 4: Troll): ";
+                std::cin >> race;
 
-            // Clear input buffer and check for valid race choice
-            if (std::cin.fail() || race < 0 || race > 4) {
-                std::cin.clear(); // Clear input error state
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
-                std::cout << "Invalid input. Please enter a valid race (0-4)." << std::endl;
-                continue;
+                // Clear input buffer and check for valid race choice
+                if (std::cin.fail() || race < 0 || race > 4) {
+                    std::cin.clear(); // Clear input error state
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
+                    std::cout << "Invalid input. Please enter a valid race (0-4)." << std::endl;
+                } else {
+                    validRace = true;
+                }
             }
             // Create player object and add to vector
             switch (choice) {
