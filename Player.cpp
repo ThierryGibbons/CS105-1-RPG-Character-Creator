@@ -1,9 +1,10 @@
 #include "Player.h"
 
-
+// Constructor
 Player::Player(const std::string& name, Race race, int hitPoints, int magicPoints)
     : name_(name), race_(race), hitPoints_(hitPoints), magicPoints_(magicPoints) {}
 
+// Getters
 const std::string& Player::getName() const {
     return name_;
 }
@@ -20,6 +21,7 @@ int Player::getMagicPoints() const {
     return magicPoints_;
 }
 
+// Setters
 void Player::setName(const std::string& name) {
     name_ = name;
 }

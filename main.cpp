@@ -5,9 +5,10 @@
 #include "Priest.h"
 #include "Mage.h"
 
+// Function to print the details of a player
 void printPlayerDetails(const Player& player) {
-    std::cout << "Name: " << player.getName() << std::endl;
-    std::cout << "Race: ";
+    std::cout << "Name: " << player.getName() << std::endl; // Print player name
+    std::cout << "Race: "; // Print player race
     switch (player.getRace()) {
         case Race::HUMAN: std::cout << "Human"; break;
         case Race::ELF: std::cout << "Elf"; break;
@@ -16,12 +17,13 @@ void printPlayerDetails(const Player& player) {
         case Race::TROLL: std::cout << "Troll"; break;
     }
     std::cout << std::endl;
-    std::cout << "Hit Points: " << player.getHitPoints() << std::endl;
-    std::cout << "Magic Points: " << player.getMagicPoints() << std::endl;
-    std::cout << "Attack: " << player.attack() << std::endl;
+    std::cout << "Hit Points: " << player.getHitPoints() << std::endl; // Print player hit points
+    std::cout << "Magic Points: " << player.getMagicPoints() << std::endl; // Print player magic points
+    std::cout << "Attack: " << player.attack() << std::endl; // Print player attack method
 }
 
 int main() {
+    // Vectors to store different types of player objects
     std::vector<Warrior> warriors;
     std::vector<Priest> priests;
     std::vector<Mage> mages;
@@ -38,6 +40,7 @@ int main() {
         std::cout << "Enter your choice: ";
         std::cin >> choice;
 
+        // If choice is between 1 and 3, ask for name and race
         if (choice >= 1 && choice <= 3) {
             std::cout << "Enter name: ";
             std::cin >> name;
@@ -45,6 +48,7 @@ int main() {
             std::cout << "Select race (0: Human, 1: Elf, 2: Dwarf, 3: Orc, 4: Troll): ";
             std::cin >> race;
 
+            // Create player object and add to vector
             switch (choice) {
                 case 1:
                     warriors.emplace_back(name, static_cast<Race>(race));
@@ -60,6 +64,7 @@ int main() {
 
     } while (choice != 4);
 
+    // Print details of all players
     std::cout << "\n----------\nWarriors:\n----------" << std::endl;
     for (const auto& warrior : warriors) {
         printPlayerDetails(warrior);
